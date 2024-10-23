@@ -3,6 +3,7 @@ import { useState } from "react";
 import { IoIosStar } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { IoCart } from "react-icons/io5";
+
 const Product = ({ product, handleAddtoCart }) => {
       const { title, image, price, rating } = product
       const [cartAddStatus, setCartAddStatus] = useState(false)

@@ -4,15 +4,19 @@ import './App.css'
 import Carts from './components/Carts/Carts'
 import Nav from './components/Nav/Nav'
 import Products from './components/Products/Products'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [carts, setCarts] = useState([])
   const handleAddtoCart = (product) => {
-    setCarts([...carts, product])
+    const isExist = carts.find(cart => product.id === cart.id)
+    isExist || setCarts([...carts, product])
+    isExist && toast.error("Cart already added!")
   }
 
   return (
     <>
+      <ToastContainer />
       <header >
         <div className=' bg-sky-500'>
           <Nav carts={carts}></Nav>
