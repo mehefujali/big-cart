@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import Cart from "../Cart/Cart";
 const Carts = ({ carts }) => {
       return (
-            <div className=" w-3/12 border-2 p-4 rounded-lg ">
+            <div className=" w-full md:w-4/12 xl:w-3/12 border-2 p-4 rounded-lg ">
                   <div className=" flex flex-col gap-4">
                         {carts.map(cart => <Cart key={cart.id} cart={cart}></Cart>)}
                   </div>

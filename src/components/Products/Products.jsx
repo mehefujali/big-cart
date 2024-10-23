@@ -12,7 +12,7 @@ const Products = ({ handleAddtoCart }) => {
 
 
       return (
-            <div className=" w-9/12 grid md:grid-cols-3 gap-5  ">
+            <div className=" w-11/12 mx-auto md:w-8/12 xl:w-9/12 grid md:grid-cols-2 xl:grid-cols-3 gap-5  ">
                   {products.map(product => <Product handleAddtoCart={handleAddtoCart} key={Product.id} product={product}></Product>)}
             </div>
       );
