@@ -3,11 +3,12 @@ import { useState } from "react";
 import { IoIosStar } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { IoCart } from "react-icons/io5";
-const Product = ({ product }) => {
+const Product = ({ product, handleAddtoCart }) => {
       const { title, image, price, rating } = product
       const [cartAddStatus, setCartAddStatus] = useState(false)
-      const handelAddCart = () => {
+      const handelCart = () => {
             setCartAddStatus(true)
+            handleAddtoCart(product)
       }
       return (
             <div className=" 
@@ -21,7 +22,7 @@ const Product = ({ product }) => {
                         <p>$ {price}</p>
                         <p className=" flex items-center gap-1">{rating.rate} <IoIosStar className=" text-yellow-600" /> <span >{rating.count} rating</span></p>
                   </div>
-                  <button className="btn w-fit mt-4 bg-transparent border-2 border-sky-500 text-sky-500  hover:bg-transparent" onClick={handelAddCart}>{cartAddStatus ? <IoCart className="text-xl" /> : <IoCartOutline className=" text-xl" />} Add to cart</button>
+                  <button className="btn w-fit mt-4 bg-transparent border-2 border-sky-500 text-sky-500  hover:bg-transparent" onClick={handelCart}>{cartAddStatus ? <IoCart className="text-xl" /> : <IoCartOutline className=" text-xl" />} Add to cart</button>
             </div>
       );
 };
@@ -29,7 +30,8 @@ const Product = ({ product }) => {
 
 
 Product.propTypes = {
-      product: PropTypes.object.isRequired
+      product: PropTypes.object.isRequired,
+      handleAddtoCart: PropTypes.func.isRequired
 }
 
 export default Product;
