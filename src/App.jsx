@@ -7,6 +7,7 @@ import Products from './components/Products/Products'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Categories from './components/Categories/Categories'
+import Footer from './components/Footer/Footer'
 function App() {
   const [totalCartPrice, setTotalCartPrice] = useState(0)
   const [productByCategory, setProductByCategory] = useState([])
@@ -46,6 +47,9 @@ function App() {
           <Carts totalCartPrice={totalCartPrice.toFixed(2)} carts={carts} handelRemoveCart={handelRemoveCart}></Carts>
         </section>
       </main>
+      <footer className='mt-12'>
+        <Footer></Footer>
+      </footer>
     </>
   )
 }
