@@ -11,11 +11,11 @@ const Product = ({ product, handleAddtoCart }) => {
             // setCartAddStatus(true)
             handleAddtoCart(product)
       }
+
       return (
             <div className=" 
             flex flex-col gap-1 w-full h-full border p-4  text-start rounded-lg
-            shadow-sm
-            
+            shadow-sm justify-between
             ">
                   <img className=" w-44 h-44 object-contain mx-auto" src={image} alt="" />
                   <div className=" mt-3 flex flex-col gap-1">

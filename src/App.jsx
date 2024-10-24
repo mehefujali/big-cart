@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Categories from './components/Categories/Categories'
 function App() {
   const [totalCartPrice, setTotalCartPrice] = useState(0)
+  const [productByCategory, setProductByCategory] = useState([])
   const [carts, setCarts] = useState([])
   const handleAddtoCart = (product) => {
     const isExist = carts.find(cart => product.id === cart.id)
@@ -22,7 +23,11 @@ function App() {
     const removeCart = carts.find(cart => cart.id === id)
     setTotalCartPrice(totalCartPrice - removeCart.price)
   }
-
+  const handleSowPeoductByCategoris = (category) => {
+    fetch(`https://fakestoreapi.com/products/category/${category}`)
+      .then(res => res.json())
+      .then(data => setProductByCategory(data))
+  }
   return (
     <>
       <ToastContainer />
@@ -31,13 +36,13 @@ function App() {
           <Nav carts={carts}></Nav>
         </div>
         <div>
-          <Categories></Categories>
+          <Categories handleSowPeoductByCategoris={handleSowPeoductByCategoris}></Categories>
         </div>
       </header>
       {/* Main section  */}
       <main className=' mt-16'>
         <section className='flex flex-col md:flex-row container mx-auto md:gap-4 xl:gap-8'>
-          <Products handleAddtoCart={handleAddtoCart}></Products>
+          <Products handleAddtoCart={handleAddtoCart} productByCategory={productByCategory}></Products>
           <Carts totalCartPrice={totalCartPrice.toFixed(2)} carts={carts} handelRemoveCart={handelRemoveCart}></Carts>
         </section>
       </main>
