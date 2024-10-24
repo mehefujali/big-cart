@@ -6,6 +6,7 @@ import Nav from './components/Nav/Nav'
 import Products from './components/Products/Products'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Categories from './components/Categories/Categories'
 function App() {
   const [totalCartPrice, setTotalCartPrice] = useState(0)
   const [carts, setCarts] = useState([])
@@ -29,7 +30,9 @@ function App() {
         <div className=' bg-sky-500'>
           <Nav carts={carts}></Nav>
         </div>
-
+        <div>
+          <Categories></Categories>
+        </div>
       </header>
       {/* Main section  */}
       <main className=' mt-16'>

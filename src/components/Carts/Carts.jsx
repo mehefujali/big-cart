@@ -8,7 +8,7 @@ const Carts = ({ carts, handelRemoveCart, totalCartPrice }) => {
                   <div className=" flex flex-col gap-4">
                         {carts.map(cart => <Cart handelRemoveCart={handelRemoveCart} key={cart.id} cart={cart}></Cart>)}
                   </div>
-                  {carts.length > 1 && <button className="btn bg-sky-500 text-white mt-4 w-full">Buy all</button>}
+                  {carts.length > 1 && <button className="btn text-lg bg-sky-500 text-white mt-4 w-full">${totalCartPrice}  Buy all</button>}
             </div>
       );
 };
